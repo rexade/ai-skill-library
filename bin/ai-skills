@@ -18,6 +18,20 @@ case "$cmd" in
     if [[ "$(pwd -P)" == "$(cd "$LIBRARY_ROOT" && pwd -P)" ]]; then
       echo "Kör ai-skills från ditt projektbibliotek, inte från ai-skill-library-rooten." >&2; exit 1
     fi
+    if [[ "$pack" == "plain" ]]; then
+      skills_dir=".claude/skills"
+      mkdir -p "$skills_dir"
+      rm -f "$skills_dir"/*.md
+      echo "plain" > .claude/active-skills.txt
+      if [[ -d .git ]]; then
+        gitignore=".gitignore"
+        touch "$gitignore"
+        grep -qxF ".claude/skills/" "$gitignore" || echo ".claude/skills/" >> "$gitignore"
+        grep -qxF ".claude/active-skills.txt" "$gitignore" || echo ".claude/active-skills.txt" >> "$gitignore"
+      fi
+      echo "✓ Pack 'plain' aktiverat — inga skills laddade"
+      exit 0
+    fi
     pack_path="$PACKS_DIR/$pack"
     if [[ ! -d "$pack_path" ]]; then
       echo "Pack '$pack' finns inte. Kör 'ai-skills list'." >&2; exit 1
@@ -67,6 +81,7 @@ case "$cmd" in
     ;;
   list)
     echo "Tillgängliga packs:"
+    echo "  - plain"
     ls "$PACKS_DIR/" | sed 's/^/  - /'
     ;;
   *)
