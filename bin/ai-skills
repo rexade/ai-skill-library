@@ -1,0 +1,49 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+LIBRARY_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+PACKS_DIR="$LIBRARY_ROOT/packs"
+
+cmd="${1:-}"
+pack="${2:-}"
+
+case "$cmd" in
+  use)
+    if [[ -z "$pack" ]]; then
+      echo "Usage: ai-skills use <pack>" >&2; exit 1
+    fi
+    pack_path="$PACKS_DIR/$pack"
+    if [[ ! -d "$pack_path" ]]; then
+      echo "Pack '$pack' finns inte. Kör 'ai-skills list'." >&2; exit 1
+    fi
+    skills_dir=".claude/skills"
+    mkdir -p "$skills_dir"
+    rm -f "$skills_dir"/*.md
+    cp "$pack_path"/*.md "$skills_dir/"
+    echo "$pack" > .claude/active-skills.txt
+    echo "✓ Pack '$pack' aktiverat i $skills_dir/"
+    ls "$skills_dir/"
+    ;;
+  clear)
+    rm -f .claude/skills/*.md .claude/active-skills.txt
+    echo "✓ Skills rensade"
+    ;;
+  status)
+    if [[ -f .claude/active-skills.txt ]]; then
+      pack=$(cat .claude/active-skills.txt)
+      echo "Aktivt pack: $pack"
+      echo "Skills:"
+      ls .claude/skills/*.md 2>/dev/null | xargs -I{} basename {} .md | sed 's/^/  - /'
+    else
+      echo "Inget pack aktivt (plain mode)"
+    fi
+    ;;
+  list)
+    echo "Tillgängliga packs:"
+    ls "$PACKS_DIR/" | sed 's/^/  - /'
+    ;;
+  *)
+    echo "Användning: ai-skills <use|clear|status|list> [pack]" >&2
+    exit 1
+    ;;
+esac
