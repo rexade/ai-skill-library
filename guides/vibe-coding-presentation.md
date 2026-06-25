@@ -117,6 +117,23 @@ Samma princip gäller hela konfigurationen. En stor generisk AI-setup med hundra
 
 **Stjäl arkitekturen, inte hela huset.**
 
+En skill är en `.md`-fil. Så här ser en domänspecifik skill ut:
+
+```markdown
+---
+name: test-review
+description: "Use when reviewing a test case"
+---
+
+Granska det här testet:
+- Är setup tydlig?
+- Är hårdvarutillståndet kontrollerat?
+- Fångas loggar?
+- Är cleanup inkluderat?
+- Kan testet misslyckas av miljöskäl?
+- Är det produkt-, test-, rigg- eller infrastruktur-issue?
+```
+
 ---
 
 ## Skills ska trigga automatiskt
@@ -207,7 +224,6 @@ Det behöver inte vara dramatiskt. Det räcker med att agenten läcker en hemlig
 ## Två lager — inte ett
 
 ![No sandbox vs sandboxed](<img width="1408" height="768" alt="image" src="https://github.com/user-attachments/assets/b1552512-af05-40f8-9ad3-42463213a254" />)
-
 
 Tidigare pratade vi om produktivitetslagret:
 
@@ -308,22 +324,151 @@ Det är skillnaden mellan att vibe-koda och att faktiskt ingenjöra.
 
 ---
 
-## Enkel tumregel
+## Kom igång
 
-**Befintligt repo:**
-1. Isolera först
-2. Inventera sedan
-3. Lägg till regler
-4. Lägg till skills
-5. Lägg till hooks sist
+**Befintligt repo** → Tänk som en testare. Vad är okänt? Vad kan skada dig?
 
-**Nytt repo:**
-1. Skapa sandbox direkt
-2. Skapa CLAUDE.md direkt
-3. Skapa teststrategi direkt
-4. Skapa scripts direkt
-5. Skapa skills direkt
-6. Bygg sedan kod
+**Nytt projekt** → Tänk som en arkitekt. Bygg så att AI:n alltid har rätt kontext och rätt begränsningar.
+
+### Spår 1: Befintligt repo
+
+**1. Isolera först**
+
+Kör AI:n isolerat från resten av systemet. Den ska bara nå projektmappen — inte `~/.ssh`, `~/.env`, `~/.aws` eller andra personliga filer.
+
+```bash
+cd ditt-projekt/
+claude   # starta inne i projektet
+```
+
+Om du kör autonoma loopar: använd Docker, devcontainer eller `/sandbox`.
+
+**2. Inventera**
+
+Låt AI:n läsa projektet och skapa ett utkast till `CLAUDE.md`:
+
+```
+Läs igenom koden och skriv en CLAUDE.md som förklarar:
+- Vad projektet gör
+- Hur det byggs
+- Hur det testas
+- Vilka kommandon som används
+Var specifik.
+```
+
+Granska och justera utkastet. `CLAUDE.md` laddas automatiskt i varje ny session.
+
+**3. Lägg till regler**
+
+Lägg begränsningar direkt i `CLAUDE.md`:
+
+```markdown
+## Regler
+- Planera alltid innan du implementerar
+- Kör alltid tester innan du committar
+- Committa aldrig direkt till main
+- Fråga innan du ändrar något utanför projektmappen
+- Kör aldrig deployer utan explicit instruktion
+```
+
+Anpassa efter vad som är farligt i ditt projekt.
+
+**4. Lägg till skills**
+
+Börja med det du gör oftast. Domänspecifika skills är mer värda än generiska.
+
+**5. Lägg till hooks sist**
+
+Hooks kör automatiskt vid händelser. Lägg till dem när du vet exakt vad du vill automatisera — inte innan.
+
+---
+
+### Spår 2: Nytt projekt
+
+**1. Skapa sandbox**
+
+```bash
+mkdir mitt-projekt && cd mitt-projekt
+git init
+```
+
+Sätt upp isolering innan du skriver en enda rad kod.
+
+**2. Skapa CLAUDE.md**
+
+Skriv den innan AI:n börjar arbeta:
+
+```markdown
+# mitt-projekt
+
+## Vad det är
+[Beskriv problemet — ett konkret problem, inte en teknisk spec]
+
+## Hur det byggs
+[Kommando]
+
+## Hur det testas
+[Kommando]
+
+## Regler
+- Planera innan du implementerar
+- Kör tester innan du committar
+- Committa aldrig direkt till main
+- Fråga innan du ändrar något utanför projektmappen
+```
+
+**3. Skapa teststrategi**
+
+Bestäm vad "klart" betyder innan AI:n börjar:
+
+```markdown
+## Definition of done
+- Appen startar utan fel
+- Testerna går igenom
+- Lintaren är nöjd
+- Manuell genomgång av huvudflödet
+```
+
+**4. Skapa scripts**
+
+```
+scripts/
+  test.sh    # kör tester
+  lint.sh    # kör linting
+  build.sh   # bygger projektet
+```
+
+AI:n ska använda dessa — inte hitta på egna kommandon.
+
+**5. Skapa skills**
+
+Skriv skills för de arbetsflöden du vet att du kommer upprepa.
+
+**6. Bygg sedan kod**
+
+```bash
+claude
+```
+
+```
+Jag vill bygga [problemet, inte lösningen].
+Kan du hjälpa mig planera det?
+```
+
+Låt AI:n planera. Granska planen. Implementera sedan — ett steg i taget.
+
+---
+
+## Arbetsflödet i varje session
+
+```
+1. Ett fokuserat mål — inte "gör allt"
+2. Planera → implementera → verifiera → granska
+3. Stäng sessionen när målet är klart
+4. Nästa session börjar med nästa mål
+```
+
+Långa sessioner driftar. Korta sessioner med tydliga mål ger stabila resultat.
 
 ---
 
@@ -355,3 +500,16 @@ och rätt stoppunkter?
 1. **Skriv återanvändbara workflows** — förklara inte samma sak för AI:n två gånger
 2. **Ha alltid ett verifieringssteg** — kör tester, linta, granska innan du litar på AI-genererad kod
 3. **Dela upp AI-arbetet i roller** — researcher → planner → builder → reviewer
+
+---
+
+## Snabbreferens
+
+| Situation | Gör |
+|-----------|-----|
+| Ny session startar | Kontrollera att `CLAUDE.md` är uppdaterad |
+| Innan implementering | Kräv en plan — inte direkt kod |
+| Efter implementering | Kör tester, linta, granska diff |
+| Sessionen driftar | Stäng. Starta ny session med ett mål. |
+| AI:n gör något oväntat | Stoppa. Granska. Förstå vad som hände. |
+| Känsliga filer i närheten | Kontrollera att AI:n inte når dem |
