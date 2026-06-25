@@ -206,7 +206,7 @@ Det behöver inte vara dramatiskt. Det räcker med att agenten läcker en hemlig
 
 ## Två lager — inte ett
 
-![No sandbox vs sandboxed](<img width="1408" height="768" alt="image" src="https://github.com/user-attachments/assets/b1552512-af05-40f8-9ad3-42463213a254" />
+![No sandbox vs sandboxed](<img width="1408" height="768" alt="image" src="https://github.com/user-attachments/assets/b1552512-af05-40f8-9ad3-42463213a254" />)
 
 
 Tidigare pratade vi om produktivitetslagret:
