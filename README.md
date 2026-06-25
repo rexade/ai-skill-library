@@ -58,7 +58,7 @@ claude plugin add superpowers@claude-plugins-official
 
 ### context7
 
-MCP-server för att hämta aktuell dokumentation för bibliotek och ramverk i realtid.
+MCP-server för att hämta aktuell dokumentation för bibliotek och ramverk i realtid. **Obligatorisk** — eliminerar antaganden om API-format, protokoll och beteende innan du skriver kod. Utan Context7 kodar du mot vad du tror att dokumentationen säger.
 
 ```bash
 claude mcp add context7 -- npx -y @upstash/context7-mcp
@@ -74,33 +74,33 @@ claude plugin add code-simplifier@claude-code-marketplace
 
 > **Obs:** superpowers täcker brainstorming, planning och verification globalt. Packs i ai-skill-library komplettering med domänspecifika skills.
 
-## Vad skills faktiskt tillför — erfarenheter från jämförelsetest
+## Arbetsmetoden i praktiken — tre versioner jämförda
 
-Vi byggde samma Python CLI-verktyg parallellt: en terminal med `python`-pack, en utan skills.
+Vi byggde samma Python CLI-verktyg tre gånger parallellt:
 
-### Vinnaren: skills-terminalen
+| | Plain | Skills | Skills + Context7 |
+|---|---|---|---|
+| Design först | Nej | Ja | Ja |
+| Tester | 0 | 12 | 13 |
+| Korrekt regex-ordning | Okänd | Troligen fel | Verifierat rätt |
+| Resursläcka | Nej | Ja | Nej |
+| Källan till formatet | Antagande | Antagande | Dokumentation |
 
-Avgörande faktor: **12 tester**. Skills-versionen var verifierbart korrekt. Plain-versionen fungerade men var obevisad.
+### Vad varje version lärde oss
 
-### Vad skills-terminalen gjorde annorlunda
+**Plain:** Snabb, ren kod med typannotationer och korrekt resurshantering. Men utan tester — korrekthet obevisad, antaganden otestad.
 
-- **Design först** — föreslog arkitektur och bad om godkännande innan en rad kod skrevs
-- **TDD laddades automatiskt** — scriptet fick en komplett testsvit utan att användaren bad om det
-- **`argparse`** — script-review-skillet styr mot korrekt CLI-hantering
-- **Outputformat matchade spec** — dynamisk kolumnbredd, separator, TOTALT-rad
+**Skills:** Design-först-processen och TDD laddades automatiskt. 12 tester, verifierbart beteende. Men regex-ordningen antogs (passed före failed) utan att kontrollera pytest-dokumentationen — en bug som gömde sig i koden.
 
-### Vad plain-terminalen faktiskt var bättre på
-
-- Typannotationer (`-> tuple[int, int, int]`)
-- `path.read_text(errors="replace")` — hanterar encoding, skills-versionen hade resursläcka (`open()` utan `with`)
-- Mer robust fallback-regex
-- Privat namnkonvention (`_parse`, `_SUMMARY_LINE`)
+**Skills + Context7:** Context7 bekräftade exakt format från dokumentationen. RED-fasen i TDD exponerade omedelbart att regex-ordningen var fel. Buggen fixades *innan* koden ansågs klar. 13 tester, korrekt parsning.
 
 ### Lärdomen
 
-> Skills styr **processen** rätt, inte varje rad kod. TDD-skillet tog över och fokuserade på testbarhet — python-review kördes aldrig på slutresultatet. Kod-issues i skills-versionen är triviala att fixa. Otestad kod är svår att lita på.
+> Context7 är inte ett nice-to-have — det eliminerar antaganden. Varje gång du integrerar mot ett externt format, protokoll eller API: verifiera mot dokumentationen först.
 
-**Fungerande kod utan tester är en tidsinställd bomb. Skills-versionen vann.**
+> TDD + Context7 är kombinationen som fångar bugs tidigt. TDD ensamt fångar bara det du vet att du ska testa.
+
+**Skills styr processen rätt. Context7 säkerställer att processen utgår från fakta.**
 
 ## Uppdatera på ny maskin
 
