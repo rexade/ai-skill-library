@@ -25,7 +25,7 @@ ai-skills list           # Lista tillgängliga packs
 
 | Pack | Skills | Använd när |
 |------|--------|------------|
-| `light` | session-discipline, verification-before-completion, code-review, security-baseline | Allmänt bruk |
+| `light` | session-discipline, verification-before-completion, code-review, security-baseline, context7-check | Allmänt bruk |
 | `tdd` | tdd, verification-before-completion | Bygger ny kod med TDD |
 | `embedded` | embedded-risk-review, hardware-signal-test, log-analysis, can-mqtt-debug, release-risk-review, verification-before-completion | Embedded-projekt |
 | `robot` | robot-framework-review, robot-dryrun-check, test-data-quality, release-risk-review, verification-before-completion | Robot Framework-projekt |
