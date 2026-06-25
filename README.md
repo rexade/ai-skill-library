@@ -73,6 +73,34 @@ claude plugin add code-simplifier@claude-code-marketplace
 
 > **Obs:** superpowers täcker brainstorming, planning och verification globalt. Packs i ai-skill-library komplettering med domänspecifika skills.
 
+## Vad skills faktiskt tillför — erfarenheter från jämförelsetest
+
+Vi byggde samma Python CLI-verktyg parallellt: en terminal med `python`-pack, en utan skills.
+
+### Vinnaren: skills-terminalen
+
+Avgörande faktor: **12 tester**. Skills-versionen var verifierbart korrekt. Plain-versionen fungerade men var obevisad.
+
+### Vad skills-terminalen gjorde annorlunda
+
+- **Design först** — föreslog arkitektur och bad om godkännande innan en rad kod skrevs
+- **TDD laddades automatiskt** — scriptet fick en komplett testsvit utan att användaren bad om det
+- **`argparse`** — script-review-skillet styr mot korrekt CLI-hantering
+- **Outputformat matchade spec** — dynamisk kolumnbredd, separator, TOTALT-rad
+
+### Vad plain-terminalen faktiskt var bättre på
+
+- Typannotationer (`-> tuple[int, int, int]`)
+- `path.read_text(errors="replace")` — hanterar encoding, skills-versionen hade resursläcka (`open()` utan `with`)
+- Mer robust fallback-regex
+- Privat namnkonvention (`_parse`, `_SUMMARY_LINE`)
+
+### Lärdomen
+
+> Skills styr **processen** rätt, inte varje rad kod. TDD-skillet tog över och fokuserade på testbarhet — python-review kördes aldrig på slutresultatet. Kod-issues i skills-versionen är triviala att fixa. Otestad kod är svår att lita på.
+
+**Fungerande kod utan tester är en tidsinställd bomb. Skills-versionen vann.**
+
 ## Uppdatera på ny maskin
 
 ```bash
