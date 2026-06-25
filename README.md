@@ -5,7 +5,7 @@ On-demand skills för Claude Code. Tre lägen: plain (inga skills), light (grund
 ## Installation
 
 ```bash
-git clone git@github.com:<ditt-användarnamn>/ai-skill-library.git ~/ai-skill-library
+git clone https://github.com/rexade/ai-skill-library.git ~/ai-skill-library
 echo 'export PATH="$HOME/ai-skill-library/bin:$PATH"' >> ~/.bashrc
 source ~/.bashrc
 ```
