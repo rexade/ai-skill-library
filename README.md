@@ -29,9 +29,10 @@ ai-skills list           # Lista tillgängliga packs
 | `tdd` | tdd, verification-before-completion | Bygger ny kod med TDD |
 | `embedded` | embedded-risk-review, hardware-signal-test, log-analysis, can-mqtt-debug, release-risk-review, verification-before-completion | Embedded-projekt |
 | `robot` | robot-framework-review, robot-dryrun-check, test-data-quality, release-risk-review, verification-before-completion | Robot Framework-projekt |
-| `ci` | ci-failure-analysis, build-repair-loop, test-log-triage, release-risk-review, verification-before-completion | CI/CD-arbete |
+| `ci` | ci-failure-analysis, build-repair-loop, test-log-triage, verification-before-completion | CI/CD-arbete |
 | `security` | prompt-injection-check, security-baseline, verification-before-completion | Säkerhetsgranskning |
-| `fullstack` | component-review, api-review, db-review, security-baseline, release-risk-review, verification-before-completion | Frontend/backend/fullstack-projekt |
+| `frontend` | component-review, security-baseline, verification-before-completion | React/frontend-arbete |
+| `backend` | api-review, db-review, security-baseline, release-risk-review, verification-before-completion | API/databas/backend-arbete |
 | `python` | python-review, script-review, verification-before-completion | Python-script och verktyg |
 
 > **Obs:** Planning/brainstorming täcks av `superpowers:brainstorming` globalt.
