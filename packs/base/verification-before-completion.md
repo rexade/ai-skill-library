@@ -5,23 +5,10 @@ description: Use before claiming any task is complete — requires fresh evidenc
 
 # Verification Before Completion
 
-**Inga påståenden utan bevis.**
+Innan du säger att något är klart: kör verifieringen, läs outputen, rapportera resultatet.
 
-## Innan du säger att något är klart
+- Tester — se faktisk output
+- Linter — se faktisk output  
+- Diff — vad ändrades?
 
-1. Kör testerna — se faktisk output
-2. Kör linter — se faktisk output
-3. Granska diff — vad ändrades egentligen?
-
-## Förbjudna fraser utan att ha kört verifieringen
-
-- "Det borde fungera"
-- "Ser rätt ut"
-- "Testerna passerar nog"
-- "Klart"
-
-## Regeln
-
-Kör kommandot. Läs outputen. Sedan påstå resultatet.
-
-Kravet: faktisk testkörning i detta meddelande — inte en tidigare körning.
+Påstå inte "klart" utan att ha kört. Bevis, inte antaganden.
