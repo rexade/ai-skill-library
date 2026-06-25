@@ -1,6 +1,6 @@
 ---
 name: component-review
-description: Granska React-komponenter för korrekthet, hooks-regler, renderingsproblem och prop-design
+description: Use when reviewing React components — checks hooks rules, rendering issues, prop design, and side effects
 ---
 
 # Component Review

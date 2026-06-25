@@ -1,6 +1,6 @@
 ---
 name: script-review
-description: Granska Python CLI-script för korrekt argumenthantering, exit-koder, felutskrifter och körbarhet
+description: Use when reviewing Python CLI scripts — checks argument handling, exit codes, error output, and runnability
 ---
 
 # Script Review

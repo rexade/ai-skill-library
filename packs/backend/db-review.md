@@ -1,6 +1,6 @@
 ---
 name: db-review
-description: Granska databasscheman, queries och migrationer för korrekthet, prestanda och säkerhet
+description: Use when reviewing database schemas, queries, or migrations — checks correctness, performance, and security
 ---
 
 # DB Review

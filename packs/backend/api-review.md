@@ -1,6 +1,6 @@
 ---
 name: api-review
-description: Granska REST API-endpoints för korrekt design, felhantering, validering och autentisering
+description: Use when reviewing REST API endpoints — checks design, error handling, validation, and authentication
 ---
 
 # API Review

@@ -33,8 +33,8 @@ Varje pack laddar automatiskt `base`-packens delade skills, sedan packens egna.
 
 | Pack | Skills (utöver base) | Använd när |
 |------|----------------------|------------|
-| `base` | verification-before-completion, security-baseline, release-risk-review | Laddas alltid automatiskt |
-| `light` | session-discipline, code-review, context7-check, isolation | Allmänt bruk |
+| `base` | verification-before-completion, security-baseline, release-risk-review, session-handoff, context7-check | Laddas alltid automatiskt |
+| `light` | session-discipline, code-review, isolation | Allmänt bruk |
 | `tdd` | tdd | Bygger ny kod med TDD |
 | `embedded` | embedded-risk-review, hardware-signal-test, log-analysis, can-mqtt-debug | Embedded-projekt |
 | `robot` | robot-framework-review, robot-dryrun-check, test-data-quality | Robot Framework-projekt |

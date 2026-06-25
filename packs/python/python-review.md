@@ -1,6 +1,6 @@
 ---
 name: python-review
-description: Granska Python-kod för idiomatisk stil, typing, felhantering och vanliga fallgropar
+description: Use when reviewing Python code — checks idiomatic style, typing, error handling, and common pitfalls
 ---
 
 # Python Review

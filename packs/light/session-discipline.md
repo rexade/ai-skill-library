@@ -9,9 +9,9 @@ description: Use when starting or ending a session — enforces single-goal sess
 
 ## Sessionstart
 
-1. Kontrollera att `CLAUDE.md` är uppdaterad och stämmer med projektets nuläge
-2. Definiera ett konkret mål för sessionen — inte "gör allt"
-3. Planera innan du implementerar
+1. Finns `progress.md`? Läs den och ta vid där.
+2. Kontrollera att `CLAUDE.md` stämmer med projektets nuläge
+3. Definiera ett konkret mål för sessionen — inte "gör allt"
 
 ## Under sessionen
 
