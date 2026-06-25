@@ -323,7 +323,7 @@ Det är skillnaden mellan att vibe-koda och att faktiskt ingenjöra.
 
 ### Spår 1: Befintligt repo
 
-**1. Isolera först**
+#### 1. Isolera först
 
 Kör AI:n isolerat från resten av systemet. Den ska bara nå projektmappen — inte `~/.ssh`, `~/.env`, `~/.aws` eller andra personliga filer.
 
@@ -334,7 +334,7 @@ claude   # starta inne i projektet
 
 Om du kör autonoma loopar: använd Docker, devcontainer eller `/sandbox`.
 
-**2. Inventera**
+#### 2. Inventera
 
 Låt AI:n läsa projektet och skapa ett utkast till `CLAUDE.md`:
 
@@ -349,7 +349,7 @@ Var specifik.
 
 Granska och justera utkastet. `CLAUDE.md` laddas automatiskt i varje ny session.
 
-**3. Lägg till regler**
+#### 3. Lägg till regler
 
 Lägg begränsningar direkt i `CLAUDE.md`:
 
@@ -364,19 +364,17 @@ Lägg begränsningar direkt i `CLAUDE.md`:
 
 Anpassa efter vad som är farligt i ditt projekt.
 
-**4. Lägg till skills**
+#### 4. Lägg till skills
 
 Börja med det du gör oftast. Domänspecifika skills är mer värda än generiska.
 
-**5. Lägg till hooks sist**
+#### 5. Lägg till hooks sist
 
 Hooks kör automatiskt vid händelser. Lägg till dem när du vet exakt vad du vill automatisera — inte innan.
 
----
-
 ### Spår 2: Nytt projekt
 
-**1. Skapa sandbox**
+#### 1. Skapa sandbox
 
 ```bash
 mkdir mitt-projekt && cd mitt-projekt
@@ -385,7 +383,7 @@ git init
 
 Sätt upp isolering innan du skriver en enda rad kod.
 
-**2. Skapa CLAUDE.md**
+#### 2. Skapa CLAUDE.md
 
 Skriv den innan AI:n börjar arbeta:
 
@@ -408,7 +406,7 @@ Skriv den innan AI:n börjar arbeta:
 - Fråga innan du ändrar något utanför projektmappen
 ```
 
-**3. Skapa teststrategi**
+#### 3. Skapa teststrategi
 
 Bestäm vad "klart" betyder innan AI:n börjar:
 
@@ -420,7 +418,7 @@ Bestäm vad "klart" betyder innan AI:n börjar:
 - Manuell genomgång av huvudflödet
 ```
 
-**4. Skapa scripts**
+#### 4. Skapa scripts
 
 ```
 scripts/
@@ -431,11 +429,11 @@ scripts/
 
 AI:n ska använda dessa — inte hitta på egna kommandon.
 
-**5. Skapa skills**
+#### 5. Skapa skills
 
 Skriv skills för de arbetsflöden du vet att du kommer upprepa.
 
-**6. Bygg sedan kod**
+#### 6. Bygg sedan kod
 
 ```bash
 claude
@@ -452,12 +450,10 @@ Låt AI:n planera. Granska planen. Implementera sedan — ett steg i taget.
 
 ## Arbetsflödet i varje session
 
-```
 1. Ett fokuserat mål — inte "gör allt"
 2. Planera → implementera → verifiera → granska
 3. Stäng sessionen när målet är klart
 4. Nästa session börjar med nästa mål
-```
 
 Långa sessioner driftar. Korta sessioner med tydliga mål ger stabila resultat.
 
