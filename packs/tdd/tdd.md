@@ -1,41 +1,26 @@
 ---
 name: tdd
-description: Use when implementing any feature or bugfix — enforces red-green-refactor before writing production code
+description: Use when implementing a feature or bugfix — write the test before the code
 ---
 
 # Test-Driven Development
 
-**Skriv testet innan koden. Alltid.**
+**Skriv testet innan koden.**
 
 ## Cykeln
 
-### 🔴 Red — skriv ett misslyckande test
-- Skriv testet för beteendet du vill implementera
-- Kör det — det MÅSTE misslyckas
-- Om det passerar direkt: testet testar ingenting, skriv om det
+1. **Red** — skriv testet, kör det, se det misslyckas
+2. **Green** — skriv minsta möjliga kod som gör testet grönt
+3. **Refactor** — städa upp medan testerna är gröna
 
-### 🟢 Green — minimal kod för att klara testet
-- Skriv minsta möjliga kod som gör testet grönt
-- Kör testet — det MÅSTE passera
-- Motstå frestelsen att generalisera nu
+## Varför i den ordningen
 
-### 🔵 Refactor — städa utan att bryta
-- Förbättra koden medan testerna är gröna
-- Kör testerna efter varje ändring
-- Om något går rött: ångra och försök igen
+Ett test som aldrig har misslyckats bevisar ingenting — det kan vara felskrivet eller alltid returnera true. Att se det misslyckas är kvittot på att det testar rätt sak.
 
-## Järnlagen
+## Vanliga genvägar att undvika
 
-```
-INGET PRODUKTIONSKOD UTAN ETT MISSLYCKANDE TEST FÖRST
-```
-
-Inga undantag. Inte för "enkla saker". Inte för "det är bara en rad".
-
-## Vanliga rationaliseringar
-
-| Ursäkt | Verklighet |
-|--------|------------|
-| "Det är för enkelt" | Enkla saker har buggar också |
+| Tanke | Problem |
+|-------|---------|
+| "Det är för enkelt för ett test" | Enkla saker har buggar också |
+| "Jag testar efteråt" | Tester-efteråt verifierar bara det du vet — inte det du missat |
 | "Jag vet hur det ska fungera" | Vetande ≠ bevis |
-| "Testet tar för lång tid" | Debuggning tar längre tid |

@@ -1,6 +1,6 @@
 ---
 name: context7-check
-description: Använd när uppgiften involverar externa bibliotek, API:er, filformat eller protokoll — slå upp dokumentationen i Context7 innan implementation börjar
+description: Use when the task involves external libraries, APIs, file formats, or protocols — look up the documentation in Context7 before implementation
 ---
 
 # Context7 Check
@@ -23,6 +23,6 @@ Innan du skriver kod som beror på ett externt bibliotek, API, filformat eller p
 
 ## Varför
 
-I ett jämförelsetest byggde två instanser samma pytest-logganalysator. Båda antog att pytest skriver `passed` före `failed` i sammanfattningsraden. Context7 bekräftade det exakta formatet — och avslöjade att antagandet var fel. Den version som använde Context7 fångade buggen i RED-fasen. De andra fick fel parsning utan att veta om det.
+I ett jämförelsetest byggde två instanser samma pytest-logganalysator. Båda antog att pytest skriver `passed` före `failed` i sammanfattningsraden. Context7 bekräftade det exakta formatet — och avslöjade att antagandet var fel. Den version som använde Context7 fångade buggen tidigt. De andra fick fel parsning utan att veta om det.
 
 **Antaganden om format kostar mer att fixa i produktion än att slå upp i dokumentationen tar.**

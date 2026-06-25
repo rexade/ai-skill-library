@@ -31,6 +31,9 @@ case "$cmd" in
     skills_dir=".claude/skills"
     mkdir -p "$skills_dir"
     rm -f "$skills_dir"/*.md
+    # Ladda alltid base-pack först (delade skills)
+    base_files=("$PACKS_DIR/base"/*.md)
+    [[ ${#base_files[@]} -gt 0 ]] && cp "${base_files[@]}" "$skills_dir/"
     cp "${md_files[@]}" "$skills_dir/"
     echo "$pack" > .claude/active-skills.txt
     # Ensure .claude/skills/ and active-skills.txt are gitignored in the project
