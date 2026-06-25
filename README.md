@@ -108,9 +108,9 @@ Vi byggde samma Python CLI-verktyg tre gånger parallellt:
 
 **Skills styr processen rätt. Context7 säkerställer att processen utgår från fakta.**
 
-## Guide
+## Dokumentation
 
-[vibe-coding-presentation.md](vibe-coding-presentation.md) — Arbetsmetoden komplett: principer, säkerhet, konkreta spår för befintligt repo och nytt projekt.
+[docs/vibe-coding-presentation.md](docs/vibe-coding-presentation.md) — Arbetsmetoden komplett: principer, säkerhet, konkreta spår för befintligt repo och nytt projekt.
 
 ## Uppdatera på ny maskin
 
