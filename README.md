@@ -114,8 +114,7 @@ Vi byggde samma Python CLI-verktyg tre gånger parallellt:
 
 | Fil | Innehåll |
 |-----|----------|
-| `vibe-coding-guide.md` | Steg-för-steg-guide — befintligt repo eller nytt projekt |
-| `vibe-coding-presentation.md` | Presentation av arbetsmetoden — principer, säkerhet, verktyg |
+| `vibe-coding-presentation.md` | Arbetsmetoden komplett — principer, säkerhet, konkreta spår för befintligt repo och nytt projekt |
 
 ## Uppdatera på ny maskin
 

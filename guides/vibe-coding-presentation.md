@@ -104,20 +104,7 @@ Kunskapen lever i projektet, inte i ditt huvud eller i en gammal chatt.
 
 En generisk "code review" ger generiska svar.
 
-En domänspecifik review ger svar som faktiskt betyder något:
-
-- Är setup tydlig?
-- Är hårdvarutillståndet kontrollerat?
-- Fångas loggar?
-- Är cleanup inkluderat?
-- Kan testet misslyckas av miljöskäl?
-- Är det ett produkt-issue, test-issue, rigg-issue eller infrastruktur-issue?
-
-Samma princip gäller hela konfigurationen. En stor generisk AI-setup med hundra skills man inte förstår är som en stor flalig testsuite — den ger falsk trygghet. En liten skarp setup som reflekterar hur man faktiskt jobbar är mer värd.
-
-**Stjäl arkitekturen, inte hela huset.**
-
-En skill är en `.md`-fil. Så här ser en domänspecifik skill ut:
+En domänspecifik review ger svar som faktiskt betyder något. En skill är en `.md`-fil:
 
 ```markdown
 ---
@@ -133,6 +120,10 @@ Granska det här testet:
 - Kan testet misslyckas av miljöskäl?
 - Är det produkt-, test-, rigg- eller infrastruktur-issue?
 ```
+
+Samma princip gäller hela konfigurationen. En stor generisk AI-setup med hundra skills man inte förstår är som en stor flalig testsuite — den ger falsk trygghet. En liten skarp setup som reflekterar hur man faktiskt jobbar är mer värd.
+
+**Stjäl arkitekturen, inte hela huset.**
 
 ---
 
@@ -201,9 +192,9 @@ AI:n kan skriva koden. Men disciplinen att köra grindarna är det som avgör om
 
 ## AI är också lättlurad
 
-Vi sa tidigare att AI är dum — den tappar tråden, glömmer constraints, behöver struktur.
+AI behöver struktur — den tappar tråden, glömmer constraints, driftar. Det är en sida av problemet.
 
-Det finns en andra sida av det myntet: **AI är också lättlurad.**
+Den andra sidan är värre: **AI är också lättlurad.**
 
 En agent som kan läsa opålitligt innehåll och samtidigt ta åtgärder — köra kommandon, skriva filer, anropa API:er — är sårbar för prompt injection. Det är inte en rolig jailbreak-grej. Det är ett exekveringslager-problem.
 
@@ -223,7 +214,7 @@ Det behöver inte vara dramatiskt. Det räcker med att agenten läcker en hemlig
 
 ## Två lager — inte ett
 
-![No sandbox vs sandboxed](<img width="1408" height="768" alt="image" src="https://github.com/user-attachments/assets/b1552512-af05-40f8-9ad3-42463213a254" />)
+![No sandbox vs sandboxed](https://github.com/user-attachments/assets/b1552512-af05-40f8-9ad3-42463213a254)
 
 Tidigare pratade vi om produktivitetslagret:
 
