@@ -29,17 +29,20 @@ ai-skills list           # Lista tillgängliga packs
 
 ## Packs
 
-| Pack | Skills | Använd när |
-|------|--------|------------|
-| `light` | session-discipline, verification-before-completion, code-review, security-baseline, context7-check, isolation | Allmänt bruk |
-| `tdd` | tdd, verification-before-completion | Bygger ny kod med TDD |
-| `embedded` | embedded-risk-review, hardware-signal-test, log-analysis, can-mqtt-debug, release-risk-review, verification-before-completion | Embedded-projekt |
-| `robot` | robot-framework-review, robot-dryrun-check, test-data-quality, release-risk-review, verification-before-completion | Robot Framework-projekt |
-| `ci` | ci-failure-analysis, build-repair-loop, test-log-triage, verification-before-completion | CI/CD-arbete |
-| `security` | prompt-injection-check, security-baseline, verification-before-completion | Säkerhetsgranskning |
-| `frontend` | component-review, security-baseline, verification-before-completion | React/frontend-arbete |
-| `backend` | api-review, db-review, security-baseline, release-risk-review, verification-before-completion | API/databas/backend-arbete |
-| `python` | python-review, script-review, verification-before-completion | Python-script och verktyg |
+Varje pack laddar automatiskt `base`-packens delade skills, sedan packens egna.
+
+| Pack | Skills (utöver base) | Använd när |
+|------|----------------------|------------|
+| `base` | verification-before-completion, security-baseline, release-risk-review | Laddas alltid automatiskt |
+| `light` | session-discipline, code-review, context7-check, isolation | Allmänt bruk |
+| `tdd` | tdd | Bygger ny kod med TDD |
+| `embedded` | embedded-risk-review, hardware-signal-test, log-analysis, can-mqtt-debug | Embedded-projekt |
+| `robot` | robot-framework-review, robot-dryrun-check, test-data-quality | Robot Framework-projekt |
+| `ci` | ci-failure-analysis, build-repair-loop, test-log-triage | CI/CD-arbete |
+| `security` | prompt-injection-check | Säkerhetsgranskning |
+| `frontend` | component-review | React/frontend-arbete |
+| `backend` | api-review, db-review | API/databas/backend-arbete |
+| `python` | python-review, script-review | Python-script och verktyg |
 
 > **Obs:** Planning/brainstorming täcks av `superpowers:brainstorming` globalt.
 
