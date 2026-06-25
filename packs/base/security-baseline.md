@@ -12,8 +12,7 @@ Ställ dessa frågor vid varje agentkörning:
 - Kunde fientlig input ha styrt agentens beteende?
 
 ## Filåtkomst
-- Nådde agenten bara projektmappen?
-- Fick agenten inte tillgång till `~/.ssh`, `~/.env`, `~/.aws`?
+- Nådde agenten bara projektmappen? (Se isolation-skillen för filgränser)
 
 ## Behörigheter
 - Körde agenten med minsta nödvändiga behörighet?
