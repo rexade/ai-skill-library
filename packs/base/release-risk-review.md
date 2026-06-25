@@ -18,7 +18,7 @@ description: Use before releasing or deploying to production — assesses what c
 ## Verifiering i produktion
 - Vad är det första tecknet på att releasen är OK?
 - Vad är det första tecknet på att något gick fel?
-- Vem ska monitorera och under hur lång tid?
+- Vem ska monitorera och under hur lång tid? (Minst under första körningen i produktion)
 
 ## Godkännande
 Svara explicit: **Redo att releasa / Inte redo** — och varför.

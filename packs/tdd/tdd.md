@@ -24,3 +24,4 @@ Ett test som aldrig har misslyckats bevisar ingenting — det kan vara felskrive
 | "Det är för enkelt för ett test" | Enkla saker har buggar också |
 | "Jag testar efteråt" | Tester-efteråt verifierar bara det du vet — inte det du missat |
 | "Jag vet hur det ska fungera" | Vetande ≠ bevis |
+| "Jag skriver koden först och lägger till tester efteråt" | Tester-efteråt verifierar bara det du vet — inte det du missat |

@@ -16,7 +16,7 @@ description: Use when starting or ending a session — enforces single-goal sess
 ## Under sessionen
 
 - Jobba mot ett mål — stäng sessionen när det är klart
-- Om sessionen driftar: stäng, starta ny session med ett tydligt mål
+- Om du gjort mer än ett oplanerat kontextbyte under sessionen: stäng och starta om med ett tydligt mål
 
 ## Sessionavslut
 
