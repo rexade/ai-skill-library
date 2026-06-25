@@ -33,6 +33,13 @@ case "$cmd" in
     rm -f "$skills_dir"/*.md
     cp "${md_files[@]}" "$skills_dir/"
     echo "$pack" > .claude/active-skills.txt
+    # Ensure .claude/skills/ and active-skills.txt are gitignored in the project
+    if [[ -d .git ]]; then
+      gitignore=".gitignore"
+      touch "$gitignore"
+      grep -qxF ".claude/skills/" "$gitignore" || echo ".claude/skills/" >> "$gitignore"
+      grep -qxF ".claude/active-skills.txt" "$gitignore" || echo ".claude/active-skills.txt" >> "$gitignore"
+    fi
     echo "✓ Pack '$pack' aktiverat i $skills_dir/"
     ls "$skills_dir/"
     ;;
