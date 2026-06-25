@@ -108,13 +108,9 @@ Vi byggde samma Python CLI-verktyg tre gånger parallellt:
 
 **Skills styr processen rätt. Context7 säkerställer att processen utgår från fakta.**
 
-## Guides
+## Guide
 
-`guides/` innehåller metodikdokumentation för hur man jobbar strukturerat med AI:
-
-| Fil | Innehåll |
-|-----|----------|
-| `vibe-coding-presentation.md` | Arbetsmetoden komplett — principer, säkerhet, konkreta spår för befintligt repo och nytt projekt |
+[vibe-coding-presentation.md](vibe-coding-presentation.md) — Arbetsmetoden komplett: principer, säkerhet, konkreta spår för befintligt repo och nytt projekt.
 
 ## Uppdatera på ny maskin
 
