@@ -116,7 +116,6 @@ Vi byggde samma Python CLI-verktyg tre gånger parallellt:
 |-----|----------|
 | `vibe-coding-guide.md` | Steg-för-steg-guide — befintligt repo eller nytt projekt |
 | `vibe-coding-presentation.md` | Presentation av arbetsmetoden — principer, säkerhet, verktyg |
-| `vibe-coding-demo-script.md` | Live demo-script: Bug Report Formatter (~20 min) |
 
 ## Uppdatera på ny maskin
 
