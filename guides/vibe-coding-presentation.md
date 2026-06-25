@@ -41,16 +41,9 @@ Det är därför struktur spelar roll. En prompt ger ett svar. En process ger et
 
 ## Ordningen spelar roll
 
-En princip som återkommer i allt:
+Det är frestande att börja koda direkt — men det är det snabbaste sättet att bygga fel sak på ett bra sätt.
 
-1. **Samla information** — förstå kontexten
-2. **Förstå problemet** — vad är det egentligen vi löser?
-3. **Planera** — hur ska det lösas?
-4. **Implementera** — först nu skrivs kod
-
-Inte tvärtom. Det är frestande att börja koda direkt — men det är det snabbaste sättet att bygga fel sak på ett bra sätt.
-
-Nyckeln är alltså inte att skriva den perfekta prompten. Det är att jobba strukturerat:
+Jobba i den här ordningen:
 
 1. **Planera**
 2. **Implementera**
@@ -225,20 +218,6 @@ Behandla rå AI-output som en overifierad build: användbar, men inte betrodd f�
 
 ---
 
-## Hobbykod vs produktionskod
-
-Det som skiljer dem åt — kvalitetsgrindar:
-
-1. Kör tester
-2. Kontrollera coverage
-3. Linta
-4. Gör security scan
-5. Granska resultatet
-
-AI:n kan skriva koden. Men disciplinen att köra grindarna är det som avgör om det går att driftsätta.
-
----
-
 ## AI är också lättlurad
 
 AI behöver struktur — den tappar tråden, glömmer constraints, driftar. Det är en sida av problemet.
@@ -361,6 +340,17 @@ Det är skillnaden mellan att vibe-koda och att faktiskt ingenjöra.
 - **Claude Code** — primärt verktyg
 - **Codex** — komplement när tokens är en kostnadsfråga
 - **superpowers:brainstorming** — plugin som tvingar ett designsteg innan koden skrivs
+
+---
+
+## Arbetsflödet i varje session
+
+1. Ett fokuserat mål — inte "gör allt"
+2. Planera → implementera → verifiera → granska
+3. Stäng sessionen när målet är klart
+4. Nästa session börjar med nästa mål
+
+Långa sessioner driftar. Korta sessioner med tydliga mål ger stabila resultat.
 
 ---
 
@@ -497,40 +487,6 @@ Låt AI:n planera. Granska planen. Implementera sedan — ett steg i taget.
 
 ---
 
-## Arbetsflödet i varje session
-
-1. Ett fokuserat mål — inte "gör allt"
-2. Planera → implementera → verifiera → granska
-3. Stäng sessionen när målet är klart
-4. Nästa session börjar med nästa mål
-
-Långa sessioner driftar. Korta sessioner med tydliga mål ger stabila resultat.
-
----
-
-## Det viktigaste
-
-För **befintliga repos** — tänk som en testare:
-
-```
-Vad är okänt?
-Vad kan skada mig?
-Vad får AI:n läsa?
-Vad får AI:n köra?
-Vad måste verifieras?
-```
-
-För **nya repos** — tänk som en arkitekt:
-
-```
-Hur bygger jag så att AI:n alltid har rätt kontext,
-rätt begränsningar,
-rätt testkommandon,
-och rätt stoppunkter?
-```
-
----
-
 ## Tre tumregler
 
 1. **Skriv återanvändbara workflows** — förklara inte samma sak för AI:n två gånger
@@ -549,3 +505,7 @@ och rätt stoppunkter?
 | Sessionen driftar | Stäng. Starta ny session med ett mål. |
 | AI:n gör något oväntat | Stoppa. Granska. Förstå vad som hände. |
 | Känsliga filer i närheten | Kontrollera att AI:n inte når dem |
+
+---
+
+> AI tar inte bort processen. AI gör processen körbar.
