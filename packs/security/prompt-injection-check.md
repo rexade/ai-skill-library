@@ -7,7 +7,7 @@ description: Use when an agent reads external content (README, PRs, emails, PDFs
 
 ## Vad är prompt injection?
 
-En agent som läser opålitligt innehål och tar åtgärder kan manipuleras:
+En agent som läser opålitligt innehåll och tar åtgärder kan manipuleras:
 
 ```
 Angripare skriver i en README:

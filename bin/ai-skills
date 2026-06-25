@@ -12,14 +12,26 @@ case "$cmd" in
     if [[ -z "$pack" ]]; then
       echo "Usage: ai-skills use <pack>" >&2; exit 1
     fi
+    if [[ "$pack" == */* || "$pack" == .* ]]; then
+      echo "Ogiltigt pack-namn: '$pack'" >&2; exit 1
+    fi
+    if [[ "$(pwd -P)" == "$(cd "$LIBRARY_ROOT" && pwd -P)" ]]; then
+      echo "Kör ai-skills från ditt projektbibliotek, inte från ai-skill-library-rooten." >&2; exit 1
+    fi
     pack_path="$PACKS_DIR/$pack"
     if [[ ! -d "$pack_path" ]]; then
       echo "Pack '$pack' finns inte. Kör 'ai-skills list'." >&2; exit 1
     fi
+    shopt -s nullglob
+    md_files=("$pack_path"/*.md)
+    shopt -u nullglob
+    if [[ ${#md_files[@]} -eq 0 ]]; then
+      echo "Pack '$pack' innehåller inga .md-filer." >&2; exit 1
+    fi
     skills_dir=".claude/skills"
     mkdir -p "$skills_dir"
     rm -f "$skills_dir"/*.md
-    cp "$pack_path"/*.md "$skills_dir/"
+    cp "${md_files[@]}" "$skills_dir/"
     echo "$pack" > .claude/active-skills.txt
     echo "✓ Pack '$pack' aktiverat i $skills_dir/"
     ls "$skills_dir/"
@@ -33,7 +45,12 @@ case "$cmd" in
       pack=$(cat .claude/active-skills.txt)
       echo "Aktivt pack: $pack"
       echo "Skills:"
-      ls .claude/skills/*.md 2>/dev/null | xargs -I{} basename {} .md | sed 's/^/  - /'
+      shopt -s nullglob
+      local_md=(.claude/skills/*.md)
+      shopt -u nullglob
+      for f in "${local_md[@]}"; do
+        echo "  - $(basename "$f" .md)"
+      done
     else
       echo "Inget pack aktivt (plain mode)"
     fi

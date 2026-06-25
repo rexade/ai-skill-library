@@ -25,12 +25,12 @@ ai-skills list           # Lista tillgängliga packs
 
 | Pack | Skills | Använd när |
 |------|--------|------------|
-| `light` | session-discipline, verification, code-review, security-baseline | Allmänt bruk |
-| `tdd` | tdd, verification | Bygger ny kod med TDD |
-| `embedded` | embedded-risk-review, hw-signal, logs, CAN/MQTT, release-risk, verification | Embedded-projekt |
-| `robot` | RF-review, dryrun, test-data, release-risk, verification | Robot Framework-projekt |
-| `ci` | ci-failure, build-repair, log-triage, release-risk, verification | CI/CD-arbete |
-| `security` | prompt-injection, security-baseline, verification | Säkerhetsgranskning |
+| `light` | session-discipline, verification-before-completion, code-review, security-baseline | Allmänt bruk |
+| `tdd` | tdd, verification-before-completion | Bygger ny kod med TDD |
+| `embedded` | embedded-risk-review, hardware-signal-test, log-analysis, can-mqtt-debug, release-risk-review, verification-before-completion | Embedded-projekt |
+| `robot` | robot-framework-review, robot-dryrun-check, test-data-quality, release-risk-review, verification-before-completion | Robot Framework-projekt |
+| `ci` | ci-failure-analysis, build-repair-loop, test-log-triage, release-risk-review, verification-before-completion | CI/CD-arbete |
+| `security` | prompt-injection-check, security-baseline, verification-before-completion | Säkerhetsgranskning |
 
 > **Obs:** Planning/brainstorming täcks av `superpowers:brainstorming` globalt.
 
