@@ -18,6 +18,27 @@ Vi bygger smalt — en applikation löser ett problem. Inget mer.
 
 ---
 
+## AI är inte processen
+
+Modellen är en motor — den resonerar, genererar text och kan ta åtgärder. Det är allt.
+
+Den vet inte vilken process du vill ha. Den vet inte din kvalitetsnivå, dina risker, din domän, eller när den driftar.
+
+Det verkliga ingenjörsarbetet är därför inte att skriva bättre prompts. Det är att designa systemet runt modellen:
+
+```
+Designa loopen.
+Designa minnet.
+Designa routingen.
+Designa kontrollerna.
+Designa stoppunkterna.
+Designa återhämtningsvägen.
+```
+
+Det är därför struktur spelar roll. En prompt ger ett svar. En process ger ett system.
+
+---
+
 ## Ordningen spelar roll
 
 En princip som återkommer i allt:
@@ -52,6 +73,18 @@ Lösningen är inte att kämpa emot det. Lösningen är loopar:
 4. Upprepa
 
 Varje session är engångsbiljett. Projektet växer stabilt, AI:n börjar aldrig tappa tråden.
+
+Det liknar övergången från vattenfallsprojekt till CI/CD:
+
+```
+Stor session = vattenfallet
+  Enorm kontext, lång plan, många antaganden, eventuell drift, svårt att granska.
+
+Korta loopar = CI/CD
+  Liten task, kör, validera, checkpoint, nästa task.
+```
+
+Du slutar hoppas att modellen håller kursen i 90 minuter. Du tvingar den igenom korta feedbackcykler istället.
 
 Det syns i äldre projekt — de byggdes utan den här metodiken och är svårare att fortsätta på idag.
 
