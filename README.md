@@ -31,6 +31,7 @@ ai-skills list           # Lista tillgängliga packs
 | `robot` | robot-framework-review, robot-dryrun-check, test-data-quality, release-risk-review, verification-before-completion | Robot Framework-projekt |
 | `ci` | ci-failure-analysis, build-repair-loop, test-log-triage, release-risk-review, verification-before-completion | CI/CD-arbete |
 | `security` | prompt-injection-check, security-baseline, verification-before-completion | Säkerhetsgranskning |
+| `fullstack` | component-review, api-review, db-review, security-baseline, release-risk-review, verification-before-completion | Frontend/backend/fullstack-projekt |
 
 > **Obs:** Planning/brainstorming täcks av `superpowers:brainstorming` globalt.
 
