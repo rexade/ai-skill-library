@@ -41,6 +41,36 @@ ai-skills list           # Lista tillgängliga packs
 .claude/active-skills.txt
 ```
 
+## Rekommenderade plugins
+
+Dessa tre plugins ska alltid vara installerade och aktiva i kombination med ai-skill-library.
+
+### superpowers
+
+Officiellt plugin som ger brainstorming, TDD, verification-before-completion och fler workflows.
+
+```bash
+claude plugin add superpowers@claude-plugins-official
+```
+
+### context7
+
+MCP-server för att hämta aktuell dokumentation för bibliotek och ramverk i realtid.
+
+```bash
+claude mcp add context7 -- npx -y @upstash/context7-mcp
+```
+
+### code-simplifier
+
+Plugin för att hålla kod enkel och undvika onödig komplexitet.
+
+```bash
+claude plugin add code-simplifier@claude-code-marketplace
+```
+
+> **Obs:** superpowers täcker brainstorming, planning och verification globalt. Packs i ai-skill-library komplettering med domänspecifika skills.
+
 ## Uppdatera på ny maskin
 
 ```bash
