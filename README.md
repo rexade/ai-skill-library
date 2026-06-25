@@ -1,6 +1,12 @@
 # ai-skill-library
 
-On-demand skills för Claude Code. Tre lägen: plain (inga skills), light (grundläggande), domain (projektspecifikt).
+On-demand skills för Claude Code. Byt pack beroende på vad du jobbar med — agenten vet hur den ska jobba utan att du behöver förklara det varje gång.
+
+```
+plain      →  inga skills, råa prompts
+light      →  grundläggande disciplin för allt arbete
+embedded / robot / backend / ...  →  domänspecifikt
+```
 
 ## Installation
 
@@ -25,7 +31,7 @@ ai-skills list           # Lista tillgängliga packs
 
 | Pack | Skills | Använd när |
 |------|--------|------------|
-| `light` | session-discipline, verification-before-completion, code-review, security-baseline, context7-check | Allmänt bruk |
+| `light` | session-discipline, verification-before-completion, code-review, security-baseline, context7-check, isolation | Allmänt bruk |
 | `tdd` | tdd, verification-before-completion | Bygger ny kod med TDD |
 | `embedded` | embedded-risk-review, hardware-signal-test, log-analysis, can-mqtt-debug, release-risk-review, verification-before-completion | Embedded-projekt |
 | `robot` | robot-framework-review, robot-dryrun-check, test-data-quality, release-risk-review, verification-before-completion | Robot Framework-projekt |
@@ -101,6 +107,16 @@ Vi byggde samma Python CLI-verktyg tre gånger parallellt:
 > TDD + Context7 är kombinationen som fångar bugs tidigt. TDD ensamt fångar bara det du vet att du ska testa.
 
 **Skills styr processen rätt. Context7 säkerställer att processen utgår från fakta.**
+
+## Guides
+
+`guides/` innehåller metodikdokumentation för hur man jobbar strukturerat med AI:
+
+| Fil | Innehåll |
+|-----|----------|
+| `vibe-coding-guide.md` | Steg-för-steg-guide — befintligt repo eller nytt projekt |
+| `vibe-coding-presentation.md` | Presentation av arbetsmetoden — principer, säkerhet, verktyg |
+| `vibe-coding-demo-script.md` | Live demo-script: Bug Report Formatter (~20 min) |
 
 ## Uppdatera på ny maskin
 
