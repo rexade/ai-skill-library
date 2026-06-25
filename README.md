@@ -32,6 +32,7 @@ ai-skills list           # Lista tillgängliga packs
 | `ci` | ci-failure-analysis, build-repair-loop, test-log-triage, release-risk-review, verification-before-completion | CI/CD-arbete |
 | `security` | prompt-injection-check, security-baseline, verification-before-completion | Säkerhetsgranskning |
 | `fullstack` | component-review, api-review, db-review, security-baseline, release-risk-review, verification-before-completion | Frontend/backend/fullstack-projekt |
+| `python` | python-review, script-review, verification-before-completion | Python-script och verktyg |
 
 > **Obs:** Planning/brainstorming täcks av `superpowers:brainstorming` globalt.
 
