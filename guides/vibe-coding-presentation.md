@@ -161,6 +161,22 @@ Den säger "klart" utan att bevisa det.
 
 Det farliga är att svaret ofta ser färdigt ut innan arbetet faktiskt är verifierat.
 
+### Skillnaden
+
+| Bara prompta | Processbaserat AI-arbete |
+|---|---|
+| Du: Bygg det här. | Du: Bygg det här. |
+| AI: Okej, här är resultatet. | AI: Plan. |
+| Du: Hm. Jag hoppas att det stämmer. | AI: Implementerar. |
+| | AI: Kör kontroller. |
+| | AI: Jämför mot krav. |
+| | AI: Fixar fel. |
+| | AI: Dokumenterar beslut. |
+| | Du: Granskar bevis. |
+| **Hoppas på rätt svar** | **Verifierat resultat** |
+
+> AI tar inte bort processen. AI gör processen körbar.
+
 **Regeln:** Använd plain prompting för att tänka, skriva och utforska. Använd strukturerade workflows för allt du skulle skämmas för att leverera fel.
 
 ```
