@@ -26,3 +26,15 @@ description: Use when starting or ending a session — enforces single-goal sess
 4. Stäng sessionen
 
 **Regeln:** Långa sessioner driftar. Korta sessioner med tydliga mål ger stabila resultat.
+
+## Scope Calibration
+
+Skills stödjer omdöme — de ersätter det inte.
+
+| Uppgift | Process |
+|---|---|
+| Trivial: 1 fil, tydlig brief | Implementera direkt. Ingen brainstorming, ingen spec. |
+| Liten: 2–5 filer, klar riktning | Kort designcheck, sedan implementera inline. |
+| Medium/stor: 6+ filer, oklart, arkitekturellt, riskfyllt | Full brainstorming → spec → plan → subagents. |
+
+**verification-before-completion körs alltid** — oavsett storlek.
